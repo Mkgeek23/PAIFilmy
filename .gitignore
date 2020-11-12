@@ -1,4 +1,6 @@
 /api/inc.php
+/.github
+!/.github/*
 
 # CakePHP 3
 
