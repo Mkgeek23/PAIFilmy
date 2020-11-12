@@ -1,0 +1,630 @@
+html{
+	font-family: Lato,sans-serif;
+  line-height: 1.15;
+}
+
+*{
+	padding: 0;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #222;
+  color: #666;
+}
+
+a, button {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color: #58304a;
+    transition: color .15s cubic-bezier(.25,.46,.45,.94);
+}
+
+a:hover{
+    color: #9f2aa1;
+    transition: color .15s cubic-bezier(.25,.46,.45,.94);
+}
+
+p{
+  font-size: .875rem;
+  letter-spacing: -.1px;
+  line-height: 1.43;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+ul{
+  display: block;
+  list-style-type: disc;
+}
+
+hr{
+  margin: 25px 0;
+}
+
+.shade-in{
+  box-shadow: inset 0px 0px 4px 2px rgba(0,0,0,0.54);
+}
+
+.shade-out{
+  box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.54);
+}
+
+.shade-in-out{
+  box-shadow: inset 0px 0px 4px 2px rgba(0,0,0,0.54);
+  position: relative;
+}
+
+.shade-in-out::after{
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.54);
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+
+  top: -5px;
+  right: 105%;
+
+  opacity: 0;
+  transition: opacity 1s;
+
+  font-size: 0.75rem;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.7;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%; /* To the right of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #444;
+}
+
+.container{
+	width: 1056px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#nav-bar{
+	border-bottom: 1px solid rgba(34,34,34,0.54);
+	box-shadow: 0px 0px 4px 2px rgba(34,34,34,0.54);
+	color: rgba(0,0,0,0.64);
+	background-color: #222;
+	height: 59px;
+  overflow: hidden;
+  position: relative;
+  z-index: 999;
+
+}
+
+#nav-bar ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+}
+
+#nav-bar ul li{
+	float: left;
+}
+
+#nav-bar a{
+  height: 3.75rem;
+  margin-top: 0;
+  padding: 0 .5rem;
+  font-size: .875rem;
+  line-height: 3.875rem;
+  letter-spacing: .05px;
+  word-spacing: -.25px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: white;
+}
+
+.nav-bar-left{
+  float: left;
+  overflow: hidden;
+}
+
+.nav-bar-right{
+  float: right;
+  overflow: hidden;
+}
+
+#content{
+/*	width:calc(100%-140px); 
+	overflow: hidden;
+	margin: 0 auto;
+	margin-top: 70px;
+	padding-top: 20px;
+	position: relative;*/
+}
+
+#content{
+    min-height: 400px;
+}
+
+
+/*
+#itemsContainer{
+	background-color: red;
+	overflow: hidden;
+}
+
+.catItem{
+	float: left;
+    width: 9rem;
+	padding-right: 1rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    flex-shrink: 0;
+    background-color: orange;
+    position: relative;
+}
+
+.simplePoster{
+	/*position: relative;
+    transition: background .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s cubic-bezier(.25,.46,.45,.94);
+    background: hsla(0,0%,100%,0);
+    box-shadow: 0 16px 48px 0 transparent;
+}
+
+.simplePoster>div:after{
+	content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    pointer-events: none;
+    transition: all .3s;
+    border: 2px solid #ffc200
+}
+
+.catItem img{
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    transform: translateX(-50%) scale(1);
+    transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+    color: #e8e8e8;
+    font-size: .375rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+}*/
+
+/*Formularze*/
+
+/* Add padding to containers */
+.form-background {
+
+    background-color: #111;
+}
+
+.form-container {
+    padding: 16px;
+    box-sizing: border-box;
+    width: 31.125rem;
+    padding: 2rem 2.625rem;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.form-field{
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 1rem;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: -.25rem 0;
+    padding: 1rem 0;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+  box-sizing: border-box;
+}
+
+.form-input{
+  box-sizing: border-box;
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: .5rem 0;
+    border: 0;
+    border-bottom: .0625rem solid #666;
+    background: 0 0;
+    color: inherit;
+    font-family: Lato,sans-serif;
+    font-size: .875rem;
+    text-align: left;
+}
+
+.form-input-icon{
+    padding: .5rem 2rem .5rem 0;
+}
+
+.form-label, .form-label-err{
+    visibility: visible;
+    position: absolute;
+    top: 1.25rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    opacity: 1;
+    color: #888;
+    font-size: .875rem;
+    text-align: left;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.focus .form-label{
+    top: .25rem;
+    font-size: .75rem;
+    color: #9f2aa1;
+}
+
+.focus .form-input{
+    border-color: #9f2aa1;
+    border-bottom-width: 2px;
+}
+
+.err .form-label-err{
+    top: .25rem;
+    font-size: .75rem;
+    color: #d85014;
+}
+
+.err .form-input{
+    border-color: #d85014;
+    border-bottom-width: 2px;
+}
+
+.form-input-info{
+    position: absolute;
+    right: 0;
+    bottom: 1.375rem;
+}
+
+.form-input-info .ico{
+    color: #e8e8e8;
+    font-size: 1.5;
+}
+
+.form-container h5{
+    text-align: center;
+}
+
+.form-container h5 a{
+    text-decoration: underline;
+}
+
+.form-forgotpwd{
+    position: absolute;
+    top: 3.75rem;
+    right: 0;
+    transition: all .2s;
+    border-bottom: 1px solid transparent;
+    font-size: .75rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  outline: none;
+}
+
+.btn{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    transition: all .2s;
+    border: 1px solid #eee;
+    color: #888;
+    font-family: Lato,sans-serif;
+    font-size: .875rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-field{
+    display: flex;
+    flex-flow: wrap;
+}
+
+.btn-submit{
+    border: 1px solid #9f2aa1;
+    background-color: #9f2aa1;
+    color: #FFF;
+    font-weight: 700;
+    outline: none;
+}
+
+.err-text{
+  color: #d85014;;
+}
+
+.err-input{
+  border-color: #d85014;;
+}
+
+.hidden{
+  display: none;
+}
+
+
+/* VIDEO */
+.video-container{
+  overflow: hidden;
+
+  background: #111;
+
+}
+
+.video-cont{
+  width: 60.5%;
+  float: left;
+}
+
+.video-container-video{
+   position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; 
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container-details{
+  float: right;
+
+  padding: 1em 1.2em;
+  width: 35.75%;
+
+  color: white;
+
+}
+
+.video-container-details-title{
+  color: #fff;
+}
+
+
+.video-container-details-title h2{
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.video-container-details-title-org{
+  font-size: .625em;
+  display: block;
+  color: #ccc;
+  padding: 10px 0 0;
+}
+
+.attributes{
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #1d292d;
+  list-style-type: none;
+  color: #f5f5f5;
+}
+
+.attributes li{
+  float: left;
+  border-left: solid 1px #1d292d;
+  padding: 0 .6em;
+  height: 20px;
+  line-height: 20px;
+  font-size: .9em;
+}
+
+.attributes li:first-child{
+  border-left: none;
+  padding-left: 0;
+}
+
+.movie-info{
+  width: 100%;
+  line-height: 1.5em;
+  margin-bottom: 20px;
+  font-size: .9em;
+
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movie-info h3:after {
+    content: ':';
+    margin-right: 2px;
+}
+
+.movie-info h3{
+  margin: 0;  
+  display: inline;
+  color: #bbb;
+  font-size: 1em;
+  float: left;
+  color: #bbb;
+  margin-right: 5px;
+  font-weight: 400;
+}
+
+.movie-info h2{
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.movie-info p{
+  font-size: 1.15em;
+  display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    white-space: normal;
+    text-align: justify;
+}
+
+.listInline{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  clear: both;
+}
+
+.poster{
+  float: left;
+  max-width: 300px;
+  width: 26%;
+  padding-right: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.poster img{
+  width: 100%;
+}
+
+.videoFullInfo{
+  overflow: hidden;
+  color: #f5f5f5;
+}
+
+.videoFullInfo h1{
+  font-size: 1.75em;
+  font-weight: 700;
+  margin-top: 0px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.videoFullInfo .orgTitle{
+  font-size: 1.1em;
+  font-weight: 700;
+  display: block;
+  color: #ccc;
+  padding: 10px 0 15px 0;
+  margin: 0;
+}
+
+
+/* Full-width input fields 
+input[type=text], input[type=password] {
+    padding: .5rem 2rem .5rem 0;
+  width: 100%;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+
+/* Overwrite default styles of hr 
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+/* Set a style for the submit/register button 
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+/* Add a blue text color to links 
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section 
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+*/
+
+/*SLICK */
+.slick-slide, .slick-slide *{
+    outline: none
+}
