@@ -1,9 +1,9 @@
 <?php
 
-	$servername = "sql107.epizy.com";
-	$dbname = "epiz_27145850_pai";
-	$username = "epiz_27145850";
-	$password = "h5H1JjXasqOSum";
+	$servername = "localhost";
+	$dbname = "pai";
+	$username = "root";
+	$password = "";
 
 
 	$conn = new mysqli($servername, $username, $password, $dbname);
