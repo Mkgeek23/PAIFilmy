@@ -1,4 +1,3 @@
-HEJHEJHEJ
 <div class="itemsContainer">
 	<div class="container">
 		<h2 class="itemsContainerTitle">Filmy</h2>
