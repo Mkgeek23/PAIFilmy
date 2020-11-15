@@ -29,8 +29,7 @@
 			<ul class="attributes">
 				<li><?php echo date('Y', strtotime($row['dataProdukcji']))?></li>
 				<li><?php echo $row['krajProdukcji']?></li>
-				<li>Wersja językowa</li>
-				<li>Pegi +</li>
+				<li><?php echo ($row['lektor']?"Lektor PL".($row['napisy']?" / Napisy PL":""):($row['napisy']?"Napisy PL":"Oryginalny PL"))?></li>
 			</ul>
 			<div class="movie-info">
 				<div class="listInline">
@@ -86,8 +85,7 @@
 			<ul class="attributes">
 				<li><?php echo date('Y', strtotime($row['dataProdukcji']))?></li>
 				<li><?php echo $row['krajProdukcji']?></li>
-				<li>Wersja językowa</li>
-				<li>Pegi +</li>
+				<li><?php echo ($row['lektor']?"Lektor PL".($row['napisy']?" / Napisy PL":"Oryginalny PL"):($row['napisy']?"Napisy PL":"Oryginalny PL"))?></li>
 			</ul>
 			<div class="movie-info">
 				<h2>Twórcy:</h2>
