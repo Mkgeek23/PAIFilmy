@@ -5,7 +5,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="PL">
 <head>
 	<meta charset="utf-8">
 	<title>Filmy - sklep/wyporzyczalnia</title>
@@ -39,6 +39,9 @@
 				<?php endif;?>
 				<?php if(czyZalogowano()): ?>
 				<ul>
+					<?php if(czyAdmin()): ?>
+						<a class="admin" href="index.php?a=admin"><li>Zarządzaj stroną</li></a>
+					<?php endif;?>
 					<a href="index.php?a=wyloguj"><li>Wyloguj się</li></a>
 				</ul>
 				<?php endif;?>
@@ -56,6 +59,8 @@
 					case 'film': 				require_once('code/movie.php'); 			break;
 					case 'zarejestruj': 		require_once('code/register.php'); 			break;
 					case 'wyloguj': 			require_once('code/logout.php'); 			break;
+					case 'admin': 				require_once('code/admin.php'); 			break;
+					case 'dodajfilm': 			require_once('code/addmovie.php'); 			break;
 					default	: 					require_once('code/home.php');				break;
 				}
 			?>
@@ -65,11 +70,6 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script type="text/javascript" src="js/myScripts.js"></script>
-	<style type="text/css">
-		.ytp-chrome-top, .ytp-pause-overlay{
-  			display: none;
-		}
-</style>
 
 </body>
 </html>

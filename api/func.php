@@ -7,6 +7,15 @@
     	return isset($_SESSION['id']);
     }
 
+    function czyAdmin(){
+
+    	if(czyZalogowano()){
+	    	$row = row("SELECT * FROM uzytkownicy where id=".$_SESSION['id']);
+	    	return $row['rola']=="admin";
+    	}
+    	return false;
+    }
+
     function row($sql){
     	global $conn;
     	$result = $conn->query($sql);
@@ -30,6 +39,24 @@
     		
     	}
     	return $ritems;
+    }
+
+    function isExist($sql, $itemsId, $itemsVal){
+    	global $conn;
+    	
+    	$result = $conn->query($sql);
+    	while($row = $result->fetch_assoc()){
+    		$ile=0;
+    		foreach ($itemsId as $key => $value) {
+    			if($row[$value]==$itemsVal[$key]) $ile++;
+    			else break;
+    		}
+    		if($ile==count($itemsId)){
+    			return true;
+    		}
+    		
+    	}
+    	return false;
     }
 
     function zalozZdejmij($conn, $id, $used){

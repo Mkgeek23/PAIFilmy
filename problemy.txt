@@ -10,3 +10,14 @@ Czy lepiej dużo rekordów w jednej bazie czy wiele baz mniej rekordów
 
 Rhoshandiatellyneshiaunneveshenk Koyaanisquatsiuth Williams
 Achmistrowicz-Wachmistrowicz
+
+3. movie.php
+Czy wersja językowa jako czyLektor, czyNapisy?
+
+4.
+
+
+
+Kategorie filmow do zrobiuenia:
+Najnowsze
+Gatunkami

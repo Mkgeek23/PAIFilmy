@@ -1,10 +1,10 @@
 
 
 <?php
-	if(!isset($_GET['fid'])) goToLocation('index.php?a=katalog');
+	if(!isset($_GET['fid'])) {echo 'noe nie jest'; goToLocation('index.php?a=katalog');}
 	//Wybieranie filmu z tablicy
 	//$_GET['fid']
-	$row = row("SELECT * FROM `filmy` JOIN gatunki ON filmy.id = gatunki.idFilmu JOIN gatunek ON gatunki.idGatunku=gatunek.id WHERE filmy.id = ".$_GET['fid']);
+	$row = row("SELECT * FROM `filmy` WHERE filmy.id = ".$_GET['fid']);
 	if($row == null) goToLocation('index.php?a=katalog');
 	$gatunki = rowArray("SELECT nazwaGatunku FROM `filmy` JOIN gatunki ON filmy.id = gatunki.idFilmu JOIN gatunek ON gatunki.idGatunku=gatunek.id WHERE filmy.id = ".$_GET['fid'], array("nazwaGatunku"));
 	$rezyserzy = rowArray("SELECT imie, imie2, nazwisko FROM `ludziekina` JOIN filmrezyser ON filmrezyser.idRezysera=ludziekina.idlu  JOIN filmy ON filmy.id = filmrezyser.idFilmu WHERE filmy.id = ".$_GET['fid'], array("imie", "imie2", "nazwisko"));
@@ -85,7 +85,7 @@
 			<ul class="attributes">
 				<li><?php echo date('Y', strtotime($row['dataProdukcji']))?></li>
 				<li><?php echo $row['krajProdukcji']?></li>
-				<li><?php echo ($row['lektor']?"Lektor PL".($row['napisy']?" / Napisy PL":"Oryginalny PL"):($row['napisy']?"Napisy PL":"Oryginalny PL"))?></li>
+				<li><?php echo ($row['lektor']?"Lektor PL".($row['napisy']?" / Napisy PL":""):($row['napisy']?"Napisy PL":"Oryginalny PL"))?></li>
 			</ul>
 			<div class="movie-info">
 				<h2>Twórcy:</h2>

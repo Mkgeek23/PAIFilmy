@@ -19,7 +19,7 @@ a, button {
 }
 a {
     text-decoration: none;
-    color: #58304a;
+    color: #a86390;
     transition: color .15s cubic-bezier(.25,.46,.45,.94);
 }
 
@@ -164,6 +164,10 @@ hr{
   text-transform: uppercase;
   font-weight: 400;
   color: white;
+}
+
+#nav-bar a.admin{
+  color: red;
 }
 
 .nav-bar-left{
@@ -323,6 +327,17 @@ hr{
     color: #9f2aa1;
 }
 
+.focus2 .form-label{
+    top: .25rem;
+    font-size: .75rem;
+    color: #9f2aa1;
+}
+
+.form-file .form-label{
+    top: .25rem;
+    font-size: .75rem;
+}
+
 .focus .form-input{
     border-color: #9f2aa1;
     border-bottom-width: 2px;
@@ -369,8 +384,14 @@ hr{
     cursor: pointer;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=file]:focus, input[type=date]:focus, input[type=number]:focus, textarea {
   outline: none;
+}
+
+textarea {
+  resize: none;
+    overflow-y:scroll;
+
 }
 
 .btn{
@@ -627,4 +648,17 @@ a {
 /*SLICK */
 .slick-slide, .slick-slide *{
     outline: none
+}
+.ytp-chrome-top, .ytp-pause-overlay{
+        display: none;
+    }
+
+
+
+.container-background{
+  background-color: #111;
+}
+
+.center{
+  text-align: center;
 }

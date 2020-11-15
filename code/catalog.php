@@ -1,4 +1,4 @@
-<div class="itemsContainer">
+<div class="itemsContainer container-background">
 	<div class="container">
 		<h2 class="itemsContainerTitle">Filmy</h2>
 		<div class="catItems slick">
