@@ -1,0 +1,59 @@
+body{
+	background-color: #E5E5E5;
+}
+
+*{
+	color: #333;
+}
+
+#nav-bar{
+	background-color: white;
+	color: black;
+	box-shadow: 0 14px 20px -12px rgba(0,0,0,0.2);
+	color: black;
+}
+
+#nav-bar a{
+	color: #333;
+}
+
+.container-background{
+	background-color: #E5E5E5;
+	box-shadow: none;
+}
+
+.container, .itemsContainerTitle{
+	color: #333;
+}
+
+a{
+	color: #8a228c;
+
+}
+
+.slick-prev:before, .slick-next:before{
+	color: #333;
+}
+
+.form-background{
+	background-color: #E5E5E5;
+}
+.form-background, *{
+	color: #333;
+}
+
+.form-input-info .ico{
+	color: #333;
+}
+
+.form-label, .form-label-err{
+	color: #333;
+}
+
+.video-container{
+	background-color: #E5E5E5;
+}
+
+.video-container-details-title-org, .movie-info h3, .movie-info h2, .videoFullInfo .orgTitle{
+	color: black;
+}

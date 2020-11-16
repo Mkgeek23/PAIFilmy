@@ -87,6 +87,9 @@
             //Usuwanie zbędnych spacji
             $nazwaGatunku = trim(preg_replace('/\s+/', '', $value));
             $nazwaGatunku = ucfirst($nazwaGatunku);
+            
+            if($nazwaGatunku=="") continue;
+
             if(!isExist("SELECT * from gatunek", ['nazwaGatunku'], [$nazwaGatunku])){
                 $conn->query("INSERT INTO gatunek (nazwaGatunku) VALUES ('$nazwaGatunku')");
             }

@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<?php if(isset($_SESSION['light-theme'])) echo '<link rel="stylesheet" type="text/css" href="style/style-light.css">';?>
 
 
 	
@@ -27,6 +28,7 @@
 			<div class="nav-bar-left">
 				<ul>
 					<a href="index.php?a=katalog"><li>Katalog</li></a>
+					<a href="index.php?a=motyw&p=<?php echo $_GET['a']?>"><li><?php if(isset($_SESSION['light-theme'])) echo'<strong>';?>Jasny<?php if(isset($_SESSION['light-theme'])) echo'</strong>';?>/<?php if(!isset($_SESSION['light-theme'])) echo'<strong>';?>Ciemny<?php if(!isset($_SESSION['light-theme'])) echo'</strong>';?></li></a>
 				</ul>
 			</div>
 			
@@ -61,7 +63,8 @@
 					case 'wyloguj': 			require_once('code/logout.php'); 			break;
 					case 'admin': 				require_once('code/admin.php'); 			break;
 					case 'dodajfilm': 			require_once('code/addmovie.php'); 			break;
-					default	: 					require_once('code/home.php');				break;
+					case 'motyw': 				require_once('code/theme-change.php'); 		break;
+					default	: 					require_once('code/catalog.php');			break;
 				}
 			?>
 		</div>

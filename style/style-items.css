@@ -59,6 +59,30 @@ flex-shrink: 0;
     transition: all .3s;
 }
 
+.catItem .cena{
+  display: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  border: 1px solid grey;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: -12px;
+  margin-bottom: -10px;
+
+  font-size: 12px;
+
+  color: white;
+  padding: 5px 0;
+  transform: rotate(0);
+  transition: all .3s;
+
+}
+
+.catItem:hover .cena{
+  background-color: rgba(0, 0, 0, 1);
+
+}
+
 
 .itemPosterLink{
 	/*background: #e8e8e8 url(/front/gfx/d.2b60b53….svg) 50% no-repeat;*/
@@ -101,7 +125,7 @@ flex-shrink: 0;
 
 
 
-.simplePoster img:hover{
+.simplePoster:hover img{
     transform: translateX(-50%) scale(1.2);
 }
 
