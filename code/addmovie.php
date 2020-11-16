@@ -42,20 +42,22 @@
 
         if(isset($_POST['lektor'])) $lektor = 1; else $lektor = 0;
         if(isset($_POST['napisy'])) $napisy = 1; else $napisy = 0;
+        if(isset($_POST['dubbing'])) $dubbing = 1; else $dubbing = 0;
 
 
         //$sql = "INSERT";
         if(!isExist("SELECT * FROM filmy", ['image', 'zwiastun'], [$image, $zwiastun]))
-            $conn->query("INSERT INTO filmy (tytul, orgTytul, image, zwiastun, krajProdukcji, opisFilmu, dataProdukcji, cenaWyporzyczenia, cenaZakupu, lektor, napisy) VALUES ('$tytul', '$tytulOrg', '$image', '$zwiastun', '$kraj', '$opis', '$data', '$cena', '$cena', '$lektor', '$napisy')");
+            $conn->query("INSERT INTO filmy (tytul, orgTytul, image, zwiastun, krajProdukcji, opisFilmu, dataProdukcji, cenaWyporzyczenia, cenaZakupu, lektor, dubbing, napisy) VALUES ('$tytul', '$tytulOrg', '$image', '$zwiastun', '$kraj', '$opis', '$data', '$cena', '$cena', '$lektor', '$dubbing', '$napisy')");
 
         $row = row("SELECT * from filmy where image='$image'");
         $filmId = $row['id'];
+        
         //Tworcy
         foreach ($_POST['fTworcy'] as $key => $value) {
             //Usuwanie zbędnych spacji
             $value = trim(preg_replace('/\s+/', ' ', $value));
             $fullName = explode ( " " , $value, 3 );
-
+ 
             //Usuwanie pustych rekordów
             $imie = $fullName[0];
             if(count($fullName)>2){$imie2=$fullName[1]; $nazwisko=$fullName[2];}
@@ -66,6 +68,7 @@
                 if($imie2!='') $conn->query("INSERT INTO ludziekina (imie, imie2, nazwisko) VALUES ('$imie', '$imie2', '$nazwisko')");
                 else $conn->query("INSERT INTO ludziekina (imie, nazwisko) VALUES ('$imie', '$nazwisko')");
             }
+
             $row = row("SELECT idlu FROM ludziekina where imie='$imie' and nazwisko='$nazwisko'");
             $idLudzia = $row['idlu'];
 
@@ -83,15 +86,18 @@
         foreach ($_POST['fGatunki'] as $value) {
             //Usuwanie zbędnych spacji
             $nazwaGatunku = trim(preg_replace('/\s+/', '', $value));
+            $nazwaGatunku = ucfirst($nazwaGatunku);
+            if(!isExist("SELECT * from gatunek", ['nazwaGatunku'], [$nazwaGatunku])){
+                $conn->query("INSERT INTO gatunek (nazwaGatunku) VALUES ('$nazwaGatunku')");
+            }
 
             $row = row("SELECT id FROM gatunek where nazwaGatunku='$nazwaGatunku'");
             $idGatunku = $row['id'];
 
-            if(!isExist("SELECT * from gatunek", ['nazwaGatunku'], [$nazwaGatunku])){
-                $conn->query("INSERT INTO gatunek (nazwaGatunku) VALUES ('$nazwaGatunku')");
-            }
             if(!isExist("SELECT * from gatunki", ['idFilmu', 'idGatunku'], [$filmId, $idGatunku]))
                 $conn->query("INSERT INTO gatunki (idFilmu, idGatunku) VALUES ($filmId, $idGatunku)");
+
+
         }
 
         goToLocation("index.php?a=film&fid=".$filmId);
@@ -138,10 +144,10 @@
 
     <div class="form-field focus-block">
         <div id="tworcy"></div>
-            <div><input class="input form-input form-input-icon tworca" type="text" name="fTworcy[]" id="fTworcy" maxlength="40" autocomplete="off" required></div>
+            <div><input class="input form-input form-input-icon tworca" type="text" name="fTworcy[0]" id="fTworcy" maxlength="40" autocomplete="off"></div>
             <label class="form-label">Twórcy</label>
-            <div style="float: left; margin-top: 5px;"><label><input type="checkbox" name="scenarzysta[]" id="scenarzysta">Scenarzysta</label>
-        <label><input type="checkbox" name="rezyser[]" id="rezyser">Reżyser</label></div>
+            <div style="float: left; margin-top: 5px;"><label><input type="checkbox" name="scenarzysta[0]" id="scenarzysta">Scenarzysta</label>
+        <label><input type="checkbox" name="rezyser[0]" id="rezyser">Reżyser</label></div>
         
         
         <label class="form-label-err hidden"></label>
@@ -151,12 +157,12 @@
                 <i class="ico ico--info icon-info" style="font-size:1.5rem;"></i>
             </div>
         </div><div style="clear: both;"></div><br>
-        <label class="form-add" onclick="dodajTworce('tworcy', 'fTworcy', 'scenarzysta', 'rezyser')"><a href="#">Dodaj twórcę</a></label>
+        <label class="form-add" onclick="dodajTworce('tworcy', 'fTworcy', 'scenarzysta', 'rezyser')"><a href="#tworcy">Dodaj twórcę</a></label>
     </div>
 
     <div class="form-field focus-block">
         <div id="gatunki"></div>
-            <div><input class="input form-input form-input-icon gatunek" type="text" name="fGatunki[]" id="fGatunki" maxlength="30" autocomplete="off" required></div>
+            <div><input class="input form-input form-input-icon gatunek" type="text" name="fGatunki[]" id="fGatunki" maxlength="30" autocomplete="off"></div>
             <label class="form-label">Gatunki</label>
         <label class="form-label-err hidden"></label>
         <div class="form-input-info">
@@ -165,7 +171,7 @@
                 <i class="ico ico--info icon-info" style="font-size:1.5rem;"></i>
             </div>
         </div><div style="clear: both;"></div><br>
-        <label class="form-add" onclick="dodajGatunek('gatunki', 'fGatunki')"><a href="#">Dodaj gatunek</a></label>
+        <label class="form-add" onclick="dodajGatunek('gatunki', 'fGatunki')"><a href="#gatunki">Dodaj gatunek</a></label>
     </div>
 
     <div class="form-field">
@@ -198,7 +204,7 @@
     <div class="form-field">
         <label class="form-label">Wersja językowa</label><br>
         <div style="float: left; margin-top: 5px;"><label><input type="checkbox" name="lektor">Lektor</label>
-        <label><input type="checkbox" name="napisy">Napisy</label></div>
+        <label><input type="checkbox" name="napisy">Napisy</label><label><input type="checkbox" name="dubbing">Dubbing</label></div>
         <label class="form-label-err hidden"></label>
     </div>
     
@@ -226,10 +232,13 @@
             if($key+1!=count($tworcy)) echo ", ";
         }
     ?>];
+var ileTworcow = 0;
+
 function dodajTworce(id, srcId, srcSc, srcRe){
+    ++ileTworcow;
   var input = document.createElement('input');
   input.setAttribute('type', 'text');
-  input.setAttribute('name', 'fTworcy[]');
+  input.setAttribute('name', 'fTworcy['+ileTworcow+']');
   input.setAttribute('maxlength', '40');
   input.setAttribute('autocomplete', 'off');
   input.value = document.getElementById(srcId).value;
@@ -246,7 +255,7 @@ function dodajTworce(id, srcId, srcSc, srcRe){
   var label1 = document.createElement('label');
   var input1 = document.createElement('input');
   input1.setAttribute('type', 'checkbox');
-  input1.setAttribute('name', 'scenarzysta[]');
+  input1.setAttribute('name', 'scenarzysta['+ileTworcow+']');
   if(document.getElementById(srcSc).checked) input1.setAttribute('checked', 'checked');
 
   document.getElementById(srcSc).checked = false
@@ -258,7 +267,7 @@ function dodajTworce(id, srcId, srcSc, srcRe){
   var input2 = document.createElement('input');
 
   input2.setAttribute('type', 'checkbox');
-  input2.setAttribute('name', 'rezyser[]');
+  input2.setAttribute('name', 'rezyser['+ileTworcow+']');
   
   if(document.getElementById(srcRe).checked) input2.setAttribute('checked', 'checked');
 
