@@ -10,7 +10,7 @@
 			    	echo '
 			    		<div class="catItem">
 							<div class="simplePoster">
-								<a href="index.php?a=film&fid='.$row['id'].'" class="itemPosterLink"><img src="img/movies/'.$row['image'].'"></a>
+								<a href="index.php?a=film&fid='.$row['id'].'" class="itemPosterLink"><img alt="plakat" src="img/movies/'.$row['image'].'"></a>
 							</div>
 							<div class="cena">'.number_format((float)$row['cenaZakupu'], 2, '.', '').' PLN</div>
 							<a href="index.php?a=film&fid='.$row['id'].'" class="itemLink"><h3>'.$row['tytul'].'</h3></a>
@@ -34,7 +34,7 @@
 			    	echo '
 			    		<div class="catItem">
 							<div class="simplePoster">
-								<a href="index.php?a=film&fid='.$row['id'].'" class="itemPosterLink"><img src="img/movies/'.$row['image'].'"></a>
+								<a href="index.php?a=film&fid='.$row['id'].'" class="itemPosterLink"><img alt="plakat" src="img/movies/'.$row['image'].'"></a>
 							</div>
 							<div class="cena">'.number_format((float)$row['cenaZakupu'], 2, '.', '').' PLN</div>
 							<a href="index.php?a=film&fid='.$row['id'].'" class="itemLink"><h3>'.$row['tytul'].'</h3></a>
