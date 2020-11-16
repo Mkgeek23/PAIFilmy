@@ -1,6 +1,6 @@
 <div class="itemsContainer container-background">
 	<div class="container">
-		<h2 class="itemsContainerTitle">Najnowsze filmy</h2>
+		<h2 class="itemsContainerTitle">Ostatnio dodane</h2>
 		<div class="catItems slick">
 			<?php
 		
@@ -24,11 +24,11 @@
 </div>
 <div class="itemsContainer container-background">
 	<div class="container">
-		<h2 class="itemsContainerTitle">Najtańsze filmy</h2>
+		<h2 class="itemsContainerTitle">Najpopularniejsze</h2>
 		<div class="catItems slick">
 			<?php
 		
-				$sql = "SELECT * FROM filmy ORDER BY cenaZakupu ASC LIMIT 24";
+				$sql = "SELECT * FROM filmy ORDER BY odslony DESC LIMIT 24";
 			    $result = $conn->query($sql);
 			    while($row = $result->fetch_assoc()){
 			    	echo '

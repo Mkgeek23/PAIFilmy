@@ -3,9 +3,10 @@
 <?php
 	if(!isset($_GET['fid'])) {echo 'noe nie jest'; goToLocation('index.php?a=katalog');}
 	//Wybieranie filmu z tablicy
-	//$_GET['fid']
+
 	$row = row("SELECT * FROM `filmy` WHERE filmy.id = ".$_GET['fid']);
 	if($row == null) goToLocation('index.php?a=katalog');
+	$conn->query("UPDATE filmy set odslony = odslony + 1 WHERE id=".$_GET['fid']);
 	$gatunki = rowArray("SELECT nazwaGatunku FROM `filmy` JOIN gatunki ON filmy.id = gatunki.idFilmu JOIN gatunek ON gatunki.idGatunku=gatunek.id WHERE filmy.id = ".$_GET['fid'], array("nazwaGatunku"));
 	$rezyserzy = rowArray("SELECT imie, imie2, nazwisko FROM `ludziekina` JOIN filmrezyser ON filmrezyser.idRezysera=ludziekina.idlu  JOIN filmy ON filmy.id = filmrezyser.idFilmu WHERE filmy.id = ".$_GET['fid'], array("imie", "imie2", "nazwisko"));
 	$scenarzysci = rowArray("SELECT imie, imie2, nazwisko FROM `ludziekina` JOIN filmscenarzysta ON filmscenarzysta.idScenarzysty=ludziekina.idlu  JOIN filmy ON filmy.id = filmscenarzysta.idFilmu WHERE filmy.id = ".$_GET['fid'], array("imie", "imie2", "nazwisko"));
