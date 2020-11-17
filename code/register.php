@@ -108,7 +108,7 @@
     	<label class="form-label-err <?php if($unameErr=="") echo 'hidden' ?>"><?php echo $unameErr; ?></label>
     	<div class="form-input-info">
     		<div class="tooltip">
-    			<span class="tooltiptext">Nazwa użytkownika powinna wynosić min. 3 znaki. Możesz użyćliter, cyfr oraz znaków: '.', '-', '_'.</span>
+    			<span class="tooltiptext">Nazwa użytkownika powinna wynosić min. 3 znaki. Możesz użyć liter, cyfr oraz znaków: [.-_].</span>
     			<i class="ico ico--info icon-info" style="font-size:1.5rem;"></i>
     		</div>
     	</div>
