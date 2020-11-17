@@ -63,6 +63,14 @@
 					?>
 				</div>
 			</div>
+
+			<div class="buy-section">
+				<div class="price">25.00 PLN</div>
+
+				<div class="btn-field">
+			    	<button class="btn-submit btn">Kup</button>
+			    </div>
+			</div>
 		</div>
 	</div>
 </div>
