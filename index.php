@@ -42,7 +42,7 @@
 					<?php endif;?>
 
 					<li class="dropdown">
-						<button class="dropbtn">Konto 
+						<button class="dropbtn"><?php echo $_SESSION['username']; ?> 
 					      <i class="fa fa-caret-down"></i>
 					    </button>
 					    <div class="dropdown-content">

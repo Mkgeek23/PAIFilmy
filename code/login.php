@@ -21,6 +21,7 @@
 	    			$zalogowano = true;
 	    			$_SESSION['id'] = $row['id'];
 	    			$_SESSION['rola'] = $row['rola'];
+	    			$_SESSION['username'] = $row['nazwaUzytkownika'];
 	    			goToLocation("index.php");
 	    		}else{
 	    			$passwordErr = "Podane hasło jest niepoprawne.";
