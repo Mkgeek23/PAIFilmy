@@ -63,6 +63,8 @@
             if(count($fullName)>2){$imie2=$fullName[1]; $nazwisko=$fullName[2];}
             else {$imie2=null; $nazwisko=$fullName[1];}
 
+            if($imie == "" || $nazwisko == "") continue;
+
             if(!isExist("SELECT * from ludziekina", ['imie', 'imie2', 'nazwisko'], [$imie, $imie2, $nazwisko])){
                 echo "Będzie dodawanko";
                 if($imie2!='') $conn->query("INSERT INTO ludziekina (imie, imie2, nazwisko) VALUES ('$imie', '$imie2', '$nazwisko')");
@@ -283,11 +285,6 @@ function dodajTworce(id, srcId, srcSc, srcRe){
   div.appendChild(label2);
 
   kontener.appendChild(div);
-    /*var kropka = document.createElement('div');
-    kropka.setAttribute('style', 'clear:both; height: 28px;');
-    kropka.innerHTML = "<b>•</b>";
-    var kropki = document.getElementById("kropki");
-    kropki.appendChild(kropka)*/
   input2.checked = true
 }
 function dodajGatunek(id, srcId){
