@@ -6,7 +6,7 @@ body{
 	color: #333;
 }
 
-#nav-bar{
+#nav-bar, .dropdown-content{
 	background-color: white;
 	color: black;
 	box-shadow: 0 14px 20px -12px rgba(0,0,0,0.2);
@@ -46,7 +46,7 @@ a{
 	color: #333;
 }
 
-.form-label, .form-label-err{
+.form-label, .form-label-err, .dropdown-content{
 	color: #333;
 }
 
@@ -56,4 +56,8 @@ a{
 
 .video-container-details-title-org, .movie-info h3, .movie-info h2, .videoFullInfo .orgTitle{
 	color: black;
+}
+
+#nav-bar .dropbtn{
+	color: #333;
 }

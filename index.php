@@ -17,34 +17,40 @@
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<?php if(isset($_SESSION['light-theme'])) echo '<link rel="stylesheet" type="text/css" href="style/style-light.css">';?>
 
-
-	
-
-
 </head>
 <body class='index'>
 	<nav id="nav-bar">
 		<div class="container">
 			<div class="nav-bar-left">
 				<ul>
-					<a href="index.php?a=katalog"><li>Katalog</li></a>
-					<a href="index.php?a=motyw&p=<?php echo $_GET['a']?>"><li><?php if(isset($_SESSION['light-theme'])) echo'<strong>';?>Jasny<?php if(isset($_SESSION['light-theme'])) echo'</strong>';?>/<?php if(!isset($_SESSION['light-theme'])) echo'<strong>';?>Ciemny<?php if(!isset($_SESSION['light-theme'])) echo'</strong>';?></li></a>
+					<li><a href="index.php?a=katalog">Katalog</a></li>
+					<li><a href="index.php?a=motyw&p=<?php echo $_GET['a']?>"><?php if(isset($_SESSION['light-theme'])) echo'<strong>';?>Jasny<?php if(isset($_SESSION['light-theme'])) echo'</strong>';?>/<?php if(!isset($_SESSION['light-theme'])) echo'<strong>';?>Ciemny<?php if(!isset($_SESSION['light-theme'])) echo'</strong>';?></a></li>
 				</ul>
 			</div>
 			
 			<div class="nav-bar-right">
 				<?php if(!czyZalogowano()): ?>
 				<ul>
-					<a href="index.php?a=zarejestruj"><li>Zarejestruj się</li></a>
-					<a href="index.php?a=zaloguj"><li>Zaloguj się</li></a>
+					<li><a href="index.php?a=zarejestruj">Zarejestruj się</a></li>
+					<li><a href="index.php?a=zaloguj">Zaloguj się</a></li>
 				</ul>
 				<?php endif;?>
 				<?php if(czyZalogowano()): ?>
 				<ul>
 					<?php if(czyAdmin()): ?>
-						<a class="admin" href="index.php?a=admin"><li>Zarządzaj stroną</li></a>
+						<li><a class="admin" href="index.php?a=admin">Zarządzaj stroną</a></li>
 					<?php endif;?>
-					<a href="index.php?a=wyloguj"><li>Wyloguj się</li></a>
+
+					<li class="dropdown">
+						<button class="dropbtn">Konto 
+					      <i class="fa fa-caret-down"></i>
+					    </button>
+					    <div class="dropdown-content">
+					      <a href="#">Ustawienia</a>
+					      <a href="index.php?a=wyloguj">Wyloguj się</a>
+					    </div>
+					  </div> 
+					</li>
 				</ul>
 				<?php endif;?>
 			</div>

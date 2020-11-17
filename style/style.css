@@ -135,9 +135,6 @@ hr{
 	color: rgba(0,0,0,0.64);
 	background-color: #222;
 	height: 59px;
-  overflow: hidden;
-  position: relative;
-  z-index: 999;
 
 }
 
@@ -152,7 +149,7 @@ hr{
 	float: left;
 }
 
-#nav-bar a{
+#nav-bar a, #nav-bar .dropbtn{
   height: 3.75rem;
   margin-top: 0;
   padding: 0 .5rem;
@@ -178,6 +175,48 @@ hr{
 .nav-bar-right{
   float: right;
   overflow: hidden;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 999;
+  border: 1px solid rgba(34,34,34,0.54);
+  box-shadow: 0px 0px 4px 2px rgba(34,34,34,0.54);
+  color: rgba(0,0,0,0.64);
+  background-color: #222;
+  max-width: 120px;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  width: calc(100% - 16px);
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 #content{

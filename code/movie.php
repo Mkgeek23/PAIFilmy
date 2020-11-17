@@ -78,7 +78,7 @@
 <div class="video-container">
 	<div class="container">
 		<div class="poster">
-			<img src="img/movies/<?php echo $row['image']?>">
+			<img alt="plakat" src="img/movies/<?php echo $row['image']?>">
 		</div>
 		<div class="videoFullInfo">
 			<h1><?php echo $row['tytul']?></h1>
