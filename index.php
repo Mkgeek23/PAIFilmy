@@ -8,7 +8,7 @@
 <html lang="PL">
 <head>
 	<meta charset="utf-8">
-	<title>Filmy - sklep/wyporzyczalnia</title>
+	<title>Filmy - sklep/wypożyczalnia</title>
 	<link rel="stylesheet" type="text/css" href="style/fontello.css">
 	<link rel="stylesheet" type="text/css" href="style/style-items.css">
 
