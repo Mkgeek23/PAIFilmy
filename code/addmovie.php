@@ -87,7 +87,7 @@
         //Gatunki
         foreach ($_POST['fGatunki'] as $value) {
             //Usuwanie zbędnych spacji
-            $nazwaGatunku = trim(preg_replace('/\s+/', '', $value));
+            $nazwaGatunku = trim(preg_replace('/\s+/', ' ', $value));
             $nazwaGatunku = ucfirst($nazwaGatunku);
             
             if($nazwaGatunku=="") continue;

@@ -46,7 +46,7 @@
 					      <i class="fa fa-caret-down"></i>
 					    </button>
 					    <div class="dropdown-content">
-					      <a href="#">Ustawienia</a>
+					      <a href="index.php?a=ustawienia">Ustawienia</a>
 					      <a href="index.php?a=wyloguj">Wyloguj się</a>
 					    </div>
 					  </div> 
@@ -69,11 +69,16 @@
 					case 'wyloguj': 			require_once('code/logout.php'); 			break;
 					case 'admin': 				require_once('code/admin.php'); 			break;
 					case 'dodajfilm': 			require_once('code/addmovie.php'); 			break;
+					case 'dodajadres': 			require_once('code/address_add.php'); 		break;
+					case 'ustawienia': 			require_once('code/settings.php'); 			break;
 					case 'motyw': 				require_once('code/theme-change.php'); 		break;
 					default	: 					require_once('code/catalog.php');			break;
 				}
 			?>
+			<footer><span>&copy Maciej Olech</span></footer>
 		</div>
+
+
 		
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
