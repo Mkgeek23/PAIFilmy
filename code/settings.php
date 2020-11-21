@@ -43,7 +43,7 @@
 								<a class="settings-section-link">Zmień adres email</a> 
 							</div>
 							<div class="settings-section-item">
-								<a class="settings-section-link">Zmień nazwę konta</a> 
+								<br>
 							</div>
 							<div class="settings-section-item">
 								<a class="settings-section-link">Zmień hasło</a> 

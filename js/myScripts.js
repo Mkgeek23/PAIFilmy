@@ -44,6 +44,8 @@ $(document).ready(function(){
 
 const inputs = document.querySelectorAll(".form-input");
 
+const filters = document.querySelectorAll(".filter");
+
 const errInputs = document.querySelectorAll(".form-input");
 
 const inputsImages = document.querySelectorAll(".form-input-image");
@@ -86,10 +88,7 @@ function checkim(){
 			parent.classList.remove("err");
 		}
 	}
-	
-
 }
-
 
 inputs.forEach(input => {
 	input.addEventListener("focus", addcl);
@@ -120,3 +119,12 @@ const fileTypes = [
 function validFileType(file) {
   return fileTypes.includes(file.type);
 }
+
+function odswiezKatalog(){
+	window.location = "index.php?a=katalog&sort=" + $('#sort').val()+"&genres=" + $('#genres').val()+"&country=" + $('#country').val();
+}
+
+filters.forEach(input => {
+	input.addEventListener("change", odswiezKatalog);
+});
+

@@ -846,3 +846,65 @@ a {
 .right{
   float: right;
 }
+
+
+.styled-select{
+  height: 40px;
+    width: 251px;
+    overflow: hidden;
+    color: #fff;
+    float: left;
+    margin: 0 20px 16px 0;
+    border: 1px solid #12282e;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+
+.styled-select select {
+  background: 0 0;
+  border: 0 none;
+  width: 285px;
+  font-family: 'PT Sans';
+  font-size: 18px;
+  height: 40px;
+  color: #f5f5f5;
+  display: inline-block;
+  padding: 5px;
+  font-weight: 100;
+  outline: 0;
+  position: relative;
+  z-index: 3;
+  text-overflow: ellipsis;
+}
+
+.styled-select select option {
+    background-color: #12282e;
+    font-weight: 300;
+    padding: .2em .6em;
+}
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
+}
+
+.styled-select .arrow {
+    background: url(https://ocdn.eu/files/pulscms/Zjg7MDA_/dedaaa3cf29317703d4237ecacb011c9.png) no-repeat;
+    height: 6px;
+    width: 17px;
+    top: -22px;
+    left: -5px;
+    margin-left: 10px;
+    float: right;
+    position: relative;
+    z-index: 2;
+}

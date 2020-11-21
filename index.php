@@ -23,6 +23,7 @@
 		<div class="container">
 			<div class="nav-bar-left">
 				<ul>
+					<li><a href="index.php">Strona główna</a></li>
 					<li><a href="index.php?a=katalog">Katalog</a></li>
 					<li><a href="index.php?a=motyw&p=<?php echo $_GET['a']?>"><?php if(isset($_SESSION['light-theme'])) echo'<strong>';?>Jasny<?php if(isset($_SESSION['light-theme'])) echo'</strong>';?>/<?php if(!isset($_SESSION['light-theme'])) echo'<strong>';?>Ciemny<?php if(!isset($_SESSION['light-theme'])) echo'</strong>';?></a></li>
 				</ul>
@@ -46,6 +47,7 @@
 					      <i class="fa fa-caret-down"></i>
 					    </button>
 					    <div class="dropdown-content">
+					      <a href="index.php?a=koszyk">Koszyk</a>
 					      <a href="index.php?a=ustawienia">Ustawienia</a>
 					      <a href="index.php?a=wyloguj">Wyloguj się</a>
 					    </div>
@@ -72,7 +74,8 @@
 					case 'dodajadres': 			require_once('code/address_add.php'); 		break;
 					case 'ustawienia': 			require_once('code/settings.php'); 			break;
 					case 'motyw': 				require_once('code/theme-change.php'); 		break;
-					default	: 					require_once('code/catalog.php');			break;
+					case 'koszyk': 				require_once('code/shopping-cart.php'); 	break;
+					default	: 					require_once('code/home.php');			break;
 				}
 			?>
 			<footer><span>&copy Maciej Olech</span></footer>
