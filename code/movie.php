@@ -69,14 +69,23 @@
 			</div>
 
 			<div class="buy-section">
-				<?php if(!isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])): ?>
+				<?php
+					if(!czyZalogowano()):
+
+				?>
+				<div class="price"><?php echo number_format((float)$row['cenaZakupu'], 2, '.', '') ?> PLN</div>
+
+				<div class="btn-field">
+			    	<a href="index.php?a=dodajdokoszyka&fid=<?php echo $_GET['fid'];?>" style="width: 100%;"><button class="btn-submit btn">Kup</button></a>
+			    </div>
+				<?php endif; if(czyZalogowano() && !isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])): ?>
 				<div class="price"><?php echo number_format((float)$row['cenaZakupu'], 2, '.', '') ?> PLN</div>
 
 				<div class="btn-field">
 			    	<a href="index.php?a=dodajdokoszyka&fid=<?php echo $_GET['fid'];?>" style="width: 100%;"><button class="btn-submit btn">Kup</button></a>
 			    </div>
 				<?php endif; ?>
-				<?php if(isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])):
+				<?php if(czyZalogowano() && isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])):
 					?>
 					<div class="btn-field">
 			    	<a href="index.php?a=koszyk" style="width: 100%;"><button class="btn-submit btn">Przejdź do koszyka</button></a>
