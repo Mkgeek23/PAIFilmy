@@ -41,22 +41,33 @@
     	return $ritems;
     }
 
+    function countRows($sql){
+        global $conn;
+        
+        $result = $conn->query($sql);
+        $ile = 0;
+        while($row = $result->fetch_assoc()){
+            $ile++;
+        }
+        return $ile;
+    }
+
     function isExist($sql, $itemsId, $itemsVal){
-    	global $conn;
-    	
-    	$result = $conn->query($sql);
-    	while($row = $result->fetch_assoc()){
-    		$ile=0;
-    		foreach ($itemsId as $key => $value) {
-    			if($row[$value]==$itemsVal[$key]) $ile++;
-    			else break;
-    		}
-    		if($ile==count($itemsId)){
-    			return true;
-    		}
-    		
-    	}
-    	return false;
+        global $conn;
+        
+        $result = $conn->query($sql);
+        while($row = $result->fetch_assoc()){
+            $ile=0;
+            foreach ($itemsId as $key => $value) {
+                if($row[$value]==$itemsVal[$key]) $ile++;
+                else break;
+            }
+            if($ile==count($itemsId)){
+                return true;
+            }
+            
+        }
+        return false;
     }
 
     function zalozZdejmij($conn, $id, $used){

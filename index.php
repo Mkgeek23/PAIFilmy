@@ -23,7 +23,7 @@
 		<div class="container">
 			<div class="nav-bar-left">
 				<ul>
-					<li><a href="index.php">Strona główna</a></li>
+					<li><a href="index.php"><span style="color:">PAI</span><span style="text-transform: lowercase;">filmy</span></a></li>
 					<li><a href="index.php?a=katalog">Katalog</a></li>
 					<li><a href="index.php?a=motyw&p=<?php echo $_GET['a']?>"><?php if(isset($_SESSION['light-theme'])) echo'<strong>';?>Jasny<?php if(isset($_SESSION['light-theme'])) echo'</strong>';?>/<?php if(!isset($_SESSION['light-theme'])) echo'<strong>';?>Ciemny<?php if(!isset($_SESSION['light-theme'])) echo'</strong>';?></a></li>
 				</ul>
@@ -41,13 +41,15 @@
 					<?php if(czyAdmin()): ?>
 						<li><a class="admin" href="index.php?a=admin">Zarządzaj stroną</a></li>
 					<?php endif;?>
-
+					<?php
+						$ileKoszyk = countRows("SELECT id from koszyk WHERE idKlienta=".$_SESSION['id']);
+					?>
 					<li class="dropdown">
-						<button class="dropbtn"><?php echo $_SESSION['username']; ?> 
+						<button class="dropbtn"><?php echo $_SESSION['username'].(($ileKoszyk>0)?" <strong><span style='color:#8900c4'>(".$ileKoszyk.")</span></strong>":""); ?>
 					      <i class="fa fa-caret-down"></i>
 					    </button>
 					    <div class="dropdown-content">
-					      <a href="index.php?a=koszyk">Koszyk</a>
+					      <a href="index.php?a=koszyk">Koszyk <?php echo (($ileKoszyk>0)?"<strong><span style='color:#8900c4'>(".$ileKoszyk.")</span></strong>":"") ?></strong></a>
 					      <a href="index.php?a=ustawienia">Ustawienia</a>
 					      <a href="index.php?a=wyloguj">Wyloguj się</a>
 					    </div>
@@ -74,8 +76,9 @@
 					case 'dodajadres': 			require_once('code/address_add.php'); 		break;
 					case 'ustawienia': 			require_once('code/settings.php'); 			break;
 					case 'motyw': 				require_once('code/theme-change.php'); 		break;
-					case 'koszyk': 				require_once('code/shopping-cart.php'); 	break;
-					default	: 					require_once('code/home.php');			break;
+					case 'koszyk': 				require_once('code/shoppingcart.php'); 		break;
+					case 'dodajdokoszyka': 		require_once('code/cart-add.php'); 			break;
+					default	: 					require_once('code/home.php');				break;
 				}
 			?>
 			<footer><span>&copy Maciej Olech</span></footer>

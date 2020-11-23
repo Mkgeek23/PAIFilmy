@@ -4,6 +4,10 @@
 	if(!isset($_GET['fid'])) {echo 'noe nie jest'; goToLocation('index.php?a=katalog');}
 	//Wybieranie filmu z tablicy
 
+	//Dodawanie do koszyka
+
+	//Koniec
+
 	$row = row("SELECT * FROM `filmy` WHERE filmy.id = ".$_GET['fid']);
 	if($row == null) goToLocation('index.php?a=katalog');
 	$conn->query("UPDATE filmy set odslony = odslony + 1 WHERE id=".$_GET['fid']);
@@ -65,11 +69,20 @@
 			</div>
 
 			<div class="buy-section">
-				<div class="price">25.00 PLN</div>
+				<?php if(!isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])): ?>
+				<div class="price"><?php echo number_format((float)$row['cenaZakupu'], 2, '.', '') ?> PLN</div>
 
 				<div class="btn-field">
-			    	<button class="btn-submit btn">Kup</button>
+			    	<a href="index.php?a=dodajdokoszyka&fid=<?php echo $_GET['fid'];?>" style="width: 100%;"><button class="btn-submit btn">Kup</button></a>
 			    </div>
+				<?php endif; ?>
+				<?php if(isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])):
+					?>
+					<div class="btn-field">
+			    	<a href="index.php?a=koszyk" style="width: 100%;"><button class="btn-submit btn">Przejdź do koszyka</button></a>
+			    </div>
+			<?php endif;?>
+
 			</div>
 		</div>
 	</div>
