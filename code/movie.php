@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="video-cont">
 			<div class="video-container-video">
-				<iframe src="//www.youtube.com/embed/<?php echo $row['zwiastun']?>" frameborder="0" allowfullscreen class="video"></iframe>
+				<iframe src="//www.youtube.com/embed/<?php echo $row['zwiastun']?>" allowfullscreen class="video"></iframe>
 			</div>
 		</div>
 		
@@ -75,19 +75,19 @@
 				<div class="price"><?php echo number_format((float)$row['cenaZakupu'], 2, '.', '') ?> PLN</div>
 
 				<div class="btn-field">
-			    	<a href="index.php?a=dodajdokoszyka&fid=<?php echo $_GET['fid'];?>" style="width: 100%;"><button class="btn-submit btn">Kup</button></a>
+			    	<a href="index.php?a=dodajdokoszyka&fid=<?php echo $_GET['fid'];?>" style="width: 100%;"><div class="btn-submit btn">Kup</div></a>
 			    </div>
 				<?php endif; ?>
 				<?php if(czyZalogowano() && isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])):
 					?>
 					<div class="btn-field">
-				    	<a href="index.php?a=koszyk" style="width: 100%;"><button class="btn-submit btn">Przejdź do koszyka</button></a>
+				    	<a href="index.php?a=koszyk" style="width: 100%;"><div class="btn-submit btn">Przejdź do koszyka</div></a>
 				    </div>
 				<?php endif;?>
 				<?php if(czyZalogowano() && isExist("SELECT * from historiazakupow WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])):
 					?>
 					<div class="btn-field">
-				    	<a href="index.php?a=obejrzyj&fid=<?php echo $_GET['fid'] ?>" style="width: 100%;"><button class="btn-submit btn">Obejrzyj</button></a>
+				    	<a href="index.php?a=obejrzyj&fid=<?php echo $_GET['fid'] ?>" style="width: 100%;"><div class="btn-submit btn">Obejrzyj</div></a>
 				    </div>
 			<?php endif;?>
 

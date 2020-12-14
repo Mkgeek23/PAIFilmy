@@ -60,19 +60,7 @@
     	<input class="form-input form-input-icon" type="password" name="password" id="password" minlength="6" maxlength="24" autocomplete="off" required>
     	<label class="form-label <?php if($passwordErr!="") echo 'hidden'?>">Hasło</label>
     	<label class="form-label-err <?php if($passwordErr=="") echo 'hidden' ?>"><?php echo $passwordErr; ?></label>
-    	<a href="index.php?a=niepamietamhasla">
-    		<label class="form-forgotpwd">Nie pamiętam hasła</label>
-    	</a>
     </div>
-    
-    <br>
-    <br>
-    
-    <br>
-    <br>
-    
-    <br>
-    <br>
     
     <br>
     <br>

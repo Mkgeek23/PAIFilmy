@@ -70,7 +70,7 @@
 							</div>
 							<div class="cena">Obejrzyj</div>
 							<a href="index.php?a=obejrzyj&fid='.$row['id'].'" class="itemLink"><h3>'.$row['tytul'].'</h3></a>
-							<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img src="img/accept.png"><span>Posiadane</span></div></a>
+							<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img alt="status zakupienia" src="img/accept.png"><span>Posiadane</span></div></a>
 						</div>
 			    		';
 			    		}
@@ -83,7 +83,7 @@
 							</div>
 							<div class="cena">Obejrzyj</div>
 							<a href="index.php?a=obejrzyj&fid='.$row['id'].'" class="itemLink"><h3>'.$row['tytul'].'</h3></a>
-							<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img src="img/accept.png"><span>Posiadane</span></div></a>
+							<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img alt="status zakupienia" src="img/accept.png"><span>Posiadane</span></div></a>
 						</div>
 			    		';
 			    	}

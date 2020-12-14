@@ -192,13 +192,13 @@
     </div>
 
     <div class="form-field form-file">
-        <input class="input form-input form-input-icon" type="date" name="fData" id="fData" maxlength="8" autocomplete="off" required>
+        <input class="input form-input form-input-icon" type="date" name="fData" id="fData" autocomplete="off" required>
         <label class="form-label">*Data produkcji</label>
         <label class="form-label-err hidden"></label>
     </div>
 
     <div class="form-field">
-        <input class="input form-input form-input-icon" type="number" step="0.01" name="fCena" id="fCena" maxlength="8" autocomplete="off" required>
+        <input class="input form-input form-input-icon" type="number" step="0.01" name="fCena" id="fCena" autocomplete="off" required>
         <label class="form-label">*Cena</label>
         <label class="form-label-err hidden"></label>
         <div class="form-input-info">
@@ -219,8 +219,8 @@
   </div>
   </div>
 </form>
-<script type="text/javascript" src="js/autocomplete.js"></script>
-<script type="text/javascript">
+<script src="js/autocomplete.js"></script>
+<script>
     var tworcy = [<?php
         $tworcy = rowArray("SELECT * FROM ludziekina", ['imie', 'imie2', 'nazwisko']);
         foreach ($tworcy as $key => $value) {

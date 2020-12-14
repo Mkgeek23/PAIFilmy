@@ -8,6 +8,8 @@ html{
 	padding: 0;
 }
 
+iframe { border: none; }
+
 body{
 	margin: 0;
 	padding: 0;

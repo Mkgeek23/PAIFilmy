@@ -77,7 +77,7 @@
     </div>
 
     <div class="form-field" style="width: 27%; float: left; margin-right: 2%;; margin-left: 2%;">
-    	<input class="input form-input form-input-icon" type="number" min="1" max="9999" name="fNDomu" id="fNDomu" maxlength="4" autocomplete="off" required>
+    	<input class="input form-input form-input-icon" type="number" min="1" max="9999" name="fNDomu" id="fNDomu" autocomplete="off" required>
     	<label class="form-label">*Nr domu</label>
     	<label class="form-label-err hidden"></label>
     </div>
@@ -91,7 +91,7 @@
     <div style="clear:both"></div>
 
     <div class="form-field" style="width: 24%; float: left;">
-    	<input class="input form-input form-input-icon" type="kod_pocztowy" pattern="^[0-9]{2}-[0-9]{3}$" name="fKodP" id="fKodP" maxlength="6" autocomplete="off" required>
+    	<input class="input form-input form-input-icon" type="text" pattern="^[0-9]{2}-[0-9]{3}$" name="fKodP" id="fKodP" maxlength="6" autocomplete="off" required>
     	<label class="form-label">*Kod pocztowy</label>
     	<label class="form-label-err hidden"></label>
     </div>

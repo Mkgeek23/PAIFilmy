@@ -10,7 +10,7 @@
 
 	<div class="container">
 	<div class="video-container-video" style="margin-top: 5px;">
-		<iframe src="//www.youtube.com/embed/<?php echo $row['calyfilm']?>?rel=0&autoplay=1" frameborder="0" allowfullscreen class="video"></iframe>
+		<iframe src="//www.youtube.com/embed/<?php echo $row['calyfilm']?>?rel=0&autoplay=1" allowfullscreen class="video"></iframe>
 	</div>
 </div>
 

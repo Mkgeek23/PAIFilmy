@@ -19,7 +19,7 @@
 							</div>
 							<div class="cena">Obejrzyj</div>
 							<a href="index.php?a='.(czyFilmZakupiony($row['id'])?"obejrzyj":"film").'&fid='.$row['id'].'" class="itemLink"><h3>'.$row['tytul'].'</h3></a>
-							'.(czyFilmZakupiony($row['id'])?'<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img src="img/accept.png"><span>Posiadane</span></div></a>':"").'
+							'.(czyFilmZakupiony($row['id'])?'<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img alt="status zakupienia" src="img/accept.png"><span>Posiadane</span></div></a>':"").'
 						</div>
 			    		';
 			    }
@@ -49,7 +49,7 @@
 							</div>
 							<div class="cena">'.number_format((float)$row['cenaZakupu'], 2, '.', '').' PLN</div>
 							<a href="index.php?a='.(czyFilmZakupiony($row['id'])?"obejrzyj":"film").'&fid='.$row['id'].'" class="itemLink"><h3>'.$row['tytul'].'</h3></a>
-							'.(czyFilmZakupiony($row['id'])?'<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img src="img/accept.png"><span>Posiadane</span></div></a>':"").'
+							'.(czyFilmZakupiony($row['id'])?'<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img alt="status zakupienia" src="img/accept.png"><span>Posiadane</span></div></a>':"").'
 						</div>
 			    		';
 			    }
@@ -75,7 +75,7 @@
 							</div>
 							<div class="cena">'.number_format((float)$row['cenaZakupu'], 2, '.', '').' PLN</div>
 							<a href="index.php?a='.(czyFilmZakupiony($row['id'])?"obejrzyj":"film").'&fid='.$row['id'].'" class="itemLink"><h3>'.$row['tytul'].'</h3></a>
-							'.(czyFilmZakupiony($row['id'])?'<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img src="img/accept.png"><span>Posiadane</span></div></a>':"").'
+							'.(czyFilmZakupiony($row['id'])?'<a href="index.php?a=mojabiblioteka"><div  class="status-icon"><img alt="status zakupienia" src="img/accept.png"><span>Posiadane</span></div></a>':"").'
 						</div>
 			    		';
 			    }
