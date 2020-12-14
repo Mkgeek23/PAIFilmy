@@ -1,12 +1,5 @@
-
-
 <?php
-	if(!isset($_GET['fid'])) {echo 'noe nie jest'; goToLocation('index.php?a=katalog');}
-	//Wybieranie filmu z tablicy
-
-	//Dodawanie do koszyka
-
-	//Koniec
+	if(!isset($_GET['fid']) || !is_numeric($_GET['fid'])) {goToLocation('index.php?a=katalog');}
 
 	$row = row("SELECT * FROM `filmy` WHERE filmy.id = ".$_GET['fid']);
 	if($row == null) goToLocation('index.php?a=katalog');
@@ -76,9 +69,9 @@
 				<div class="price"><?php echo number_format((float)$row['cenaZakupu'], 2, '.', '') ?> PLN</div>
 
 				<div class="btn-field">
-			    	<a href="index.php?a=dodajdokoszyka&fid=<?php echo $_GET['fid'];?>" style="width: 100%;"><button class="btn-submit btn">Kup</button></a>
+			    	<a href="index.php?a=zaloguj&fid=<?php echo $_GET['fid'];?>" style="width: 100%;"><button class="btn-submit btn">Kup</button></a>
 			    </div>
-				<?php endif; if(czyZalogowano() && !isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])): ?>
+				<?php endif; if(czyZalogowano() && !isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']]) && !isExist("SELECT * from historiazakupow WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])): ?>
 				<div class="price"><?php echo number_format((float)$row['cenaZakupu'], 2, '.', '') ?> PLN</div>
 
 				<div class="btn-field">
@@ -88,8 +81,14 @@
 				<?php if(czyZalogowano() && isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])):
 					?>
 					<div class="btn-field">
-			    	<a href="index.php?a=koszyk" style="width: 100%;"><button class="btn-submit btn">Przejdź do koszyka</button></a>
-			    </div>
+				    	<a href="index.php?a=koszyk" style="width: 100%;"><button class="btn-submit btn">Przejdź do koszyka</button></a>
+				    </div>
+				<?php endif;?>
+				<?php if(czyZalogowano() && isExist("SELECT * from historiazakupow WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])):
+					?>
+					<div class="btn-field">
+				    	<a href="index.php?a=obejrzyj&fid=<?php echo $_GET['fid'] ?>" style="width: 100%;"><button class="btn-submit btn">Obejrzyj</button></a>
+				    </div>
 			<?php endif;?>
 
 			</div>

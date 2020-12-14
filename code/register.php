@@ -74,10 +74,6 @@
 			$pwd_hashed = password_hash($password, PASSWORD_DEFAULT);
 			add_user_to_database($uname, $email, $pwd_hashed);
 
-			echo (password_verify($password, $pwd_hashed));
-			echo "<br>";
-			echo strlen($pwd_hashed);
-
 			$allCorrect = true;
 		}
 		

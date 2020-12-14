@@ -40,13 +40,13 @@
 						</div>
 						<div class="settings-section-group">
 							<div class="settings-section-item">
-								<a class="settings-section-link">Zmień adres email</a> 
+								<a class="settings-section-link" href="index.php?a=zmien_adres_email">Zmień adres email</a> 
 							</div>
 							<div class="settings-section-item">
 								<br>
 							</div>
 							<div class="settings-section-item">
-								<a class="settings-section-link">Zmień hasło</a> 
+								<a class="settings-section-link" href="index.php?a=zmien_haslo">Zmień hasło</a> 
 							</div>
 						</div>
 					</div>

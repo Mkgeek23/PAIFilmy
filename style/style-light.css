@@ -6,18 +6,18 @@ body{
 	color: #333;
 }
 
-#nav-bar, .dropdown-content{
+#nav-bar, .dropdown-content, footer{
 	background-color: white;
 	color: black;
 	box-shadow: 0 14px 20px -12px rgba(0,0,0,0.2);
 	color: black;
 }
 
-#nav-bar a{
+#nav-bar a, .web-header{
 	color: #333;
 }
 
-.container-background{
+.container-background, .styled-select select option{
 	background-color: #E5E5E5;
 	box-shadow: none;
 }
@@ -38,11 +38,11 @@ a{
 .form-background{
 	background-color: #E5E5E5;
 }
-.form-background, *{
+.form-background, *, .styled-select select{
 	color: #333;
 }
 
-.form-input-info .ico{
+.form-input-info .ico, .text{
 	color: #333;
 }
 

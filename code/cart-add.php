@@ -1,7 +1,8 @@
 <?php
 	if(!czyZalogowano()) goToLocation("index.php?a=logowanie");
-	if(!isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']]) && is_numeric($_GET['fid'])){
-		$conn->query("INSERT INTO koszyk (idKlienta, idFilmu) VALUES ('".$_SESSION['id']."', '".$_GET['fid']."')");
+	if(is_numeric($_GET['fid']) && !isExist("SELECT * from koszyk WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']])){
+		if(!isExist("SELECT * from historiazakupow WHERE idFilmu=".$_GET['fid']." AND idKlienta=".$_SESSION['id'], ['idKlienta', 'idFilmu'], [$_SESSION['id'], $_GET['fid']]))
+			$conn->query("INSERT INTO koszyk (idKlienta, idFilmu) VALUES ('".$_SESSION['id']."', '".$_GET['fid']."')");
 	}
 	goToLocation("index.php?a=film&fid=".$_GET['fid']);
 ?>

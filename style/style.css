@@ -858,6 +858,26 @@ a {
     border: 1px solid #12282e;
 }
 
+
+.styled-search span{
+  float: left;
+  line-height: 40px;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.styled-search input{
+  height: 40px;
+  width: 251px;
+  overflow: hidden;
+  color: #fff;
+  float: left;
+  margin: 0 20px 16px 0;
+  border: 1px solid #12282e;
+  background-color: #111;
+}
+
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1073,4 +1093,38 @@ select option:hover {
 
 .cart-item-info a{
   color: #ccc;
+}
+
+.payment{
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.payment form label:first-child{
+  font-size: 18px;
+}
+
+.payment form label:first-child:hover{
+  cursor: auto;
+}
+
+.payment form label:hover, .payment form input:hover{
+  cursor: pointer;
+}
+
+.payInfo{
+  color: white;
+  text-align: center;
+}
+
+.show-all{
+  display: none;
+  text-align: center;
+  color: #a86390;
+  font-size: 13px;
+}
+
+.text{
+  color: white;
 }

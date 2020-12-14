@@ -15,8 +15,6 @@
 
 			<?php
 				$sql = "SELECT * FROM koszyk INNER JOIN filmy on filmy.id = koszyk.idFilmu WHERE idKlienta=".$_SESSION['id'];
-				//echo $sql;
-				//echo $sql;
 				$doZaplaty = 0;
 			    $result = $conn->query($sql);
 			    $id = 0;
@@ -44,19 +42,22 @@
 			    }
 			?>
 		</div>
-		<?php if($id==0) echo '<div style="text-align: center; color: white">Koszyk jest pusty.</div>'?>
+		<?php if($id==0) echo '<div class="text" style="text-align: center;">Koszyk jest pusty.</div>'?>
 		<?php if($doZaplaty>0): ?>
 		<div class="cart-result">
 			<div class="clearfix" style="position: absolute;width: 100%; text-align: center">Łącznie do zapłaty:&nbsp<strong><?php echo number_format((float)$doZaplaty, 2, '.', ''); ?> PLN</strong>
 			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
 			<div style="clear: both"></div>
+			<div class="payment">
+				<form method="POST" action="index.php?a=dokonajZakupu">
+				<label>Metoda płatności:</label><br>
+				<input type="radio" name="payMethod" value="paypal" id="paypal" checked="checked"><label for="paypal">Paypal</label><br>
+				<input type="radio" name="payMethod" value="przelewy24" id="przelewy24"><label for="przelewy24">Przelewy24</label><br>
+				<input type="radio" name="payMethod" value="payu" id="payu"><label for="payu">PayU</label><button style="width: 100%; margin-top: 15px;" class="btn-submit btn">Zapłać</button>
+				</form>
+			</div>
 
-				<a href="index.php?a=koszyk" style="width: 100%; margin-top: 45px;"><button class="btn-submit btn">Przejdź do płatności</button></a>
+				
 		</div>
 		<?php
 			endif;
@@ -64,3 +65,4 @@
 		
 	</div>
 </div>
+

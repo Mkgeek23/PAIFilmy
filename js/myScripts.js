@@ -46,6 +46,8 @@ const inputs = document.querySelectorAll(".form-input");
 
 const filters = document.querySelectorAll(".filter");
 
+const filterslib = document.querySelectorAll(".filterslib");
+
 const errInputs = document.querySelectorAll(".form-input");
 
 const inputsImages = document.querySelectorAll(".form-input-image");
@@ -126,5 +128,13 @@ function odswiezKatalog(){
 
 filters.forEach(input => {
 	input.addEventListener("change", odswiezKatalog);
+});
+
+function odswiezBiblioteke(){
+	window.location = "index.php?a=mojabiblioteka&sort=" + $('#sort').val()+"&genres=" + $('#genres').val()+"&country=" + $('#country').val();
+}
+
+filterslib.forEach(input => {
+	input.addEventListener("change", odswiezBiblioteke);
 });
 

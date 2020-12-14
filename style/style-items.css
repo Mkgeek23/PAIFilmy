@@ -60,7 +60,6 @@ flex-shrink: 0;
 }
 
 .catItem .cena{
-  display: absolute;
   background-color: rgba(0, 0, 0, 0.7);
   text-align: center;
   border: 1px solid grey;
@@ -76,6 +75,39 @@ flex-shrink: 0;
   transform: rotate(0);
   transition: all .3s;
 
+}
+
+.status-icon{
+  position: absolute;
+  top: 4px;
+  left: 19px;
+  background-color: rgb(76, 175, 80);
+  padding: 0;
+  width: 24px;
+  /*width: 138px;*/
+  height: 24px;
+  border-radius: 12px;
+  transition: all .3s;
+  overflow: hidden;
+
+}
+
+.status-icon:hover{
+  width: 138px;
+
+}
+
+.status-icon img{
+  width: 24px;
+  height: 24px;
+  float: left;
+}
+
+.status-icon span{
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  line-height: 24px;
 }
 
 .catItem:hover .cena{

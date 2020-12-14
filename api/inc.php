@@ -14,7 +14,8 @@
 
 	mysqli_set_charset($conn, "utf8");
 
-	error_reporting(E_ALL ^ E_NOTICE);
+	//error_reporting(E_ALL ^ E_NOTICE);
+	error_reporting(0); // Wyłączenie wszystkich błędów
 	
 	$pepper = "c1isvFdxMDdmjOlvxpecFw"; //ziarno do haszowania
 

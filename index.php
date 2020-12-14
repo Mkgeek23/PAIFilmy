@@ -8,7 +8,7 @@
 <html lang="PL">
 <head>
 	<meta charset="utf-8">
-	<title>Filmy - sklep/wypożyczalnia</title>
+	<title>PAIF - oglądaj filmy online</title>
 	<link rel="stylesheet" type="text/css" href="style/fontello.css">
 	<link rel="stylesheet" type="text/css" href="style/style-items.css">
 
@@ -23,13 +23,17 @@
 		<div class="container">
 			<div class="nav-bar-left">
 				<ul>
-					<li><a href="index.php"><span style="color:">PAI</span><span style="text-transform: lowercase;">filmy</span></a></li>
+					<li><a href="index.php" style="padding-top: 8px;"><img  height="32px" src="img/logo<?php echo (isset($_SESSION['light-theme']))?"-black":"";?>.png" style="padding-top: 6px"></a></li>
 					<li><a href="index.php?a=katalog">Katalog</a></li>
 					<li><a href="index.php?a=motyw&p=<?php echo $_GET['a']?>"><?php if(isset($_SESSION['light-theme'])) echo'<strong>';?>Jasny<?php if(isset($_SESSION['light-theme'])) echo'</strong>';?>/<?php if(!isset($_SESSION['light-theme'])) echo'<strong>';?>Ciemny<?php if(!isset($_SESSION['light-theme'])) echo'</strong>';?></a></li>
 				</ul>
 			</div>
 			
+
+			
 			<div class="nav-bar-right">
+
+
 				<?php if(!czyZalogowano()): ?>
 				<ul>
 					<li><a href="index.php?a=zarejestruj">Zarejestruj się</a></li>
@@ -44,6 +48,7 @@
 					<?php
 						$ileKoszyk = countRows("SELECT id from koszyk WHERE idKlienta=".$_SESSION['id']);
 					?>
+					<li><a href="index.php?a=mojabiblioteka">Moje filmy</a></li>
 					<li class="dropdown">
 						<button class="dropbtn"><?php echo $_SESSION['username'].(($ileKoszyk>0)?" <strong><span style='color:#8900c4'>(".$ileKoszyk.")</span></strong>":""); ?>
 					      <i class="fa fa-caret-down"></i>
@@ -78,6 +83,11 @@
 					case 'motyw': 				require_once('code/theme-change.php'); 		break;
 					case 'koszyk': 				require_once('code/shoppingcart.php'); 		break;
 					case 'dodajdokoszyka': 		require_once('code/cart-add.php'); 			break;
+					case 'dokonajZakupu': 		require_once('code/payment.php'); 			break;
+					case 'mojabiblioteka': 		require_once('code/library.php'); 			break;
+					case 'obejrzyj': 			require_once('code/watch.php'); 			break;
+					case 'zmien_adres_email': 	require_once('code/email_change.php'); 		break;
+					case 'zmien_haslo': 		require_once('code/password_change.php');	break;
 					default	: 					require_once('code/home.php');				break;
 				}
 			?>

@@ -47,7 +47,9 @@
 
     }
 
+?>
 
+<?php
     if(!isset($_POST['fImie'])):
 ?>
 
@@ -70,37 +72,24 @@
     </div>
     <div style="clear:both"></div>
 
-    <div class="form-field" style="width: 42%; float: left;">
-    	<input class="input form-input form-input-icon" type="text" name="fUlica" id="fUlica" maxlength="40" autocomplete="off" required>
-    	<label class="form-label">*Ulica</label>
-    	<label class="form-label-err hidden"></label>
+    <div class="form-field" style="width: 100%; float: left;">
+        <input class="input form-input form-input-icon" type="text" name="fImie" id="fImie" maxlength="30" autocomplete="off" required>
+        <label class="form-label">*Numer karty</label>
+        <label class="form-label-err hidden"></label>
     </div>
 
-    <div class="form-field" style="width: 27%; float: left; margin-right: 2%;; margin-left: 2%;">
-    	<input class="input form-input form-input-icon" type="number" min="1" max="9999" name="fNDomu" id="fNDomu" maxlength="4" autocomplete="off" required>
-    	<label class="form-label">*Nr domu</label>
-    	<label class="form-label-err hidden"></label>
+    <div class="form-field" style="width: 100%; float: left;">
+        <input class="input form-input form-input-icon" type="text" name="fImie" id="fImie" maxlength="30" autocomplete="off" required>
+        <label class="form-label">*Data wygaśnięcia (MM/DD)</label>
+        <label class="form-label-err hidden"></label>
     </div>
 
-    <div class="form-field" style="width: 27%; float: left;">
-    	<input class="input form-input form-input-icon" type="number" min="1" max="999" name="fNMieszkania" id="fNMieszkania" autocomplete="off">
-    	<label class="form-label">Nr mieszkania</label>
-    	<label class="form-label-err hidden"></label>
+    <div class="form-field" style="width: 100%; float: left;">
+        <input class="input form-input form-input-icon" type="text" name="fImie" id="fImie" maxlength="30" autocomplete="off" required>
+        <label class="form-label">*Kod zabezpieczający (CVV)</label>
+        <label class="form-label-err hidden"></label>
     </div>
 
-    <div style="clear:both"></div>
-
-    <div class="form-field" style="width: 24%; float: left;">
-    	<input class="input form-input form-input-icon" type="kod_pocztowy" pattern="^[0-9]{2}-[0-9]{3}$" name="fKodP" id="fKodP" maxlength="6" autocomplete="off" required>
-    	<label class="form-label">*Kod pocztowy</label>
-    	<label class="form-label-err hidden"></label>
-    </div>
-
-    <div class="form-field" style="width: 74%; float: right;">
-    	<input class="input form-input form-input-icon" type="text" name="fMiasto" id="fMiasto" maxlength="40" autocomplete="off" required>
-    	<label class="form-label">*Miasto</label>
-    	<label class="form-label-err hidden"></label>
-    </div>
     <div style="clear:both"></div>
     <br>
     

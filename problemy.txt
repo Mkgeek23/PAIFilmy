@@ -24,3 +24,13 @@ Gatunkami
 
 Do dodania:
 Biblioteka kupionych filmów
+
+
+
+DO ZROBIENIA:
+Ustawienia -> zmień adres email/zmień hasło
+Koszyk -> Przejdź do płatności
+Biblioteka filmów zakupionych przez użytkownika
+Slajder "moje filmy"
+Filtrowanie danych uzytych w zapytaniu
+ZABEZPIECZENIE PRZED SQL INJECTION
