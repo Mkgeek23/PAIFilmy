@@ -23,7 +23,7 @@
 		<div class="container">
 			<div class="nav-bar-left">
 				<ul>
-					<li><a href="index.php" style="padding-top: 8px;"><img  height="32px" src="img/logo<?php echo (isset($_SESSION['light-theme']))?"-black":"";?>.png" style="padding-top: 6px"></a></li>
+					<li><a href="index.php" style="padding-top: 8px;"><img alt="logo" height="32px" src="img/logo<?php echo (isset($_SESSION['light-theme']))?"-black":"";?>.png" style="padding-top: 6px"></a></li>
 					<li><a href="index.php?a=katalog">Katalog</a></li>
 					<li><a href="index.php?a=motyw&p=<?php echo $_GET['a']?>"><?php if(isset($_SESSION['light-theme'])) echo'<strong>';?>Jasny<?php if(isset($_SESSION['light-theme'])) echo'</strong>';?>/<?php if(!isset($_SESSION['light-theme'])) echo'<strong>';?>Ciemny<?php if(!isset($_SESSION['light-theme'])) echo'</strong>';?></a></li>
 				</ul>
@@ -32,6 +32,9 @@
 
 			
 			<div class="nav-bar-right">
+				<ul>
+
+			</ul>
 
 
 				<?php if(!czyZalogowano()): ?>
@@ -42,6 +45,14 @@
 				<?php endif;?>
 				<?php if(czyZalogowano()): ?>
 				<ul>
+					<li>
+						<div class="serviceSearch">
+						    <form id="searchBar-1" class="searchBar" method="post" action="index.php?a=szukaj">
+						        <input id="searchText" class="searchInfo info" name="search" type="text" placeholder="Szukaj filmu..." autocomplete="off" minlength="3" maxlength="24" required>
+						        <input type="submit" class="btn-submit-empty searchLens" style="background-color: none" value="Szukaj">
+						    </form>
+						</div>
+					</li>
 					<?php if(czyAdmin()): ?>
 						<li><a class="admin" href="index.php?a=admin">Zarządzaj stroną</a></li>
 					<?php endif;?>
@@ -88,6 +99,7 @@
 					case 'obejrzyj': 			require_once('code/watch.php'); 			break;
 					case 'zmien_adres_email': 	require_once('code/email_change.php'); 		break;
 					case 'zmien_haslo': 		require_once('code/password_change.php');	break;
+					case 'szukaj': 				require_once('code/search.php');			break;
 					default	: 					require_once('code/home.php');				break;
 				}
 			?>
