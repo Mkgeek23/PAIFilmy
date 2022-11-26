@@ -92,3 +92,13 @@ Na tej podstronie możemy zobaczyć historię transakcji dokonanych przez użytk
 Strona pozwala na wyszukiwanie filmów za pomocą pola "Wyszukaj" znajdującego się w pasku nawigacyjnym u góry strony. Aby wyszukać film należy wpisać dowolną frazę powiązaną z danym filmem.
 
 ![App Screenshot](screenshots/screen12.png)
+
+## Panel administracyjny
+
+Istnieją dwa rodzaje kont:
+- zwykły użytkownik
+- administrator
+
+Administrator ma dostęp do panelu administracyjnego, gdzie przy pomocy formularza może dodawać nowe filmy do sklepu.
+
+![App Screenshot](screenshots/screen14.png)
